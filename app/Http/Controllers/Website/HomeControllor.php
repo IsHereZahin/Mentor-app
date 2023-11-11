@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hero;
+use App\Models\About;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class HomeControllor extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,9 @@ class HomeController extends Controller
     public function index()
     {
         //
-        return view('website.home.index');
+        $hero = Hero::query()->first();
+        $about = About::query()->first();
+        return view('website.home.index', compact('hero', 'about'));
     }
 
     /**

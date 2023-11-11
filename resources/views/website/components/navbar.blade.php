@@ -1,4 +1,4 @@
-  <!-- ======= Navber ======= -->
+  <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
@@ -40,4 +40,4 @@
       <a href="courses.html" class="get-started-btn">Get Started</a>
 
     </div>
-  </header><!-- End Navber -->
+  </header><!-- End Header -->
