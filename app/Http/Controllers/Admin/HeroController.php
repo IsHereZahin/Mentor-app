@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Hero;
 use Illuminate\Support\Facades\File;
 
-class HeroControllor extends Controller
+class HeroController extends Controller
 {
     /**
      * Display a listing of the resource.

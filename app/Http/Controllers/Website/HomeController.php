@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hero;
+use App\Models\About;
 use Illuminate\Http\Request;
 
-class DashboardControllor extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,24 +15,11 @@ class DashboardControllor extends Controller
     public function index()
     {
         //
-        return view('admin.dashboard');
+        $hero = Hero::query()->first();
+        $about = About::query()->first();
+        return view('website.home.index', compact('hero', 'about'));
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     /**
      * Show the form for creating a new resource.
      */

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Website;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class CoursesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,6 @@ class AboutController extends Controller
     public function index()
     {
         //
-        return view('website.about.index');
     }
 
     /**
