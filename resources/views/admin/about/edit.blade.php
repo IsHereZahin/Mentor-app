@@ -23,7 +23,7 @@
                 @endif
             </div>
 
-            <div class="col-md-12">
+            <div class="col-md-12" style="text-align: right">
                 <div style="float: right">
                     <a href="{{ route('dashboard.about') }}">
                         <button class="btn btn-info m-3">Show about</button>
@@ -37,6 +37,12 @@
                         @csrf
                         <div class="card-body">
                             <h4 class="card-title">Edit about</h4><hr>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-3 text-end control-label col-form-label">Head Description <span class="text-danger"> *</span></label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="headdescription" value="{{ $about->headdescription }}" class="form-control" placeholder="Head Description Here" required>
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 text-end control-label col-form-label">Title <span class="text-danger"> *</span></label>
                                 <div class="col-sm-9">

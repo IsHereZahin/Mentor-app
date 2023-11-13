@@ -9,6 +9,7 @@ class About extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'headdescription',
         'title',
         'description',
         'title1',

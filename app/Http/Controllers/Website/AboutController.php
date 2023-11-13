@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -13,7 +14,8 @@ class AboutController extends Controller
     public function index()
     {
         //
-        return view('website.about.index');
+        $about = About::query()->first();
+        return view('website.about.index', compact('about'));
     }
 
     /**

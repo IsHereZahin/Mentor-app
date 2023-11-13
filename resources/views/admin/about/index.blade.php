@@ -18,13 +18,15 @@
             </div>
             @endif
 
-            <h1>about</h1>
+            <h1>About</h1>
         </div>
         <div class="col-md-12">
             @if($about)
+            <div style="text-align: right">
                 <a href="{{ route('dashboard.about.edit') }}">
                     <button class="btn btn-warning m-3">Edit</button>
                 </a>
+            </div>
             @else
                 <a href="{{ route('dashboard.about.create') }}">
                     <button class="btn btn-info m-3">Create</button>
@@ -45,33 +47,42 @@
                     </div>
                 </div> --}}
                     <!-- ======= About Section ======= -->
-                <section id="about" class="about">
-                    <div class="container" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-md-12" style="padding: 50px">
+                        <h5>{{ $about->headdescription }}</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <section id="about" class="about">
+                            <div class="container" data-aos="fade-up">
 
-                    <div class="row">
-                        <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-                            <img src="{{ asset('images/about') }}/{{ $about->image }}" class="img-fluid" alt="">
-                        </div>
-                        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-                        <h3>{{ $about->title }}</h3>
-                        <p class="fst-italic">{{ $about->description }}</p>
-                        <ul>
-                            <li><i class="bi bi-check-circle"></i> {{ $about->title1 }}</li>
-                            <li><i class="bi bi-check-circle"></i> {{ $about->title2 }}</li>
-                            <li><i class="bi bi-check-circle"></i>{{ $about->title3 }}</li>
-                        </ul>
-                        <p>{{ $about->description1 }}</p>
+                            <div class="row">
+                                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                                    <img src="{{ asset('images/about') }}/{{ $about->image }}" class="img-fluid" alt="">
+                                </div>
+                                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                                <h3>{{ $about->title }}</h3>
+                                <p class="fst-italic">{{ $about->description }}</p>
+                                <ul>
+                                    <li><i class="bi bi-check-circle"></i> {{ $about->title1 }}</li>
+                                    <li><i class="bi bi-check-circle"></i> {{ $about->title2 }}</li>
+                                    <li><i class="bi bi-check-circle"></i>{{ $about->title3 }}</li>
+                                </ul>
+                                <p>{{ $about->description1 }}</p>
 
+                                </div>
+                            </div>
+
+                            </div>
+                        </section><!-- End About Section -->
+                        <div class="danger text-center">
+                            <div class="danger-titl text-danger" style="margin-top: 150px">Danger Zone</div>
+                            <a href="{{ route('dashboard.about.delete') }}">
+                                <button type="button" class="btn btn-danger mt-3">Delete</button>
+                            </a>
                         </div>
                     </div>
-
-                    </div>
-                </section><!-- End About Section -->
-                <div class="danger text-center">
-                    <div class="danger-titl text-danger" style="margin-top: 150px">Danger Zone</div>
-                    <a href="{{ route('dashboard.about.delete') }}">
-                        <button type="button" class="btn btn-danger mt-3">Delete</button>
-                    </a>
                 </div>
             @else
                 <div class="alert alert-info"> No data found.</div>

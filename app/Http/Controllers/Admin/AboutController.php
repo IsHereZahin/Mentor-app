@@ -33,6 +33,7 @@ class AboutController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'headdescription' => 'required',
             'title' => 'required',
             'description' => 'required',
             'title1' => 'required',
@@ -50,6 +51,7 @@ class AboutController extends Controller
         }
 
         About::query()->create([
+            'headdescription' => $request->headdescription,
             'title' => $request->title,
             'description' => $request->description,
             'title1' => $request->title1,
@@ -86,6 +88,7 @@ class AboutController extends Controller
     {
         //
         $request->validate([
+            'headdescription' => 'required',
             'title' => 'required',
             'description' => 'required',
             'title1' => 'required',

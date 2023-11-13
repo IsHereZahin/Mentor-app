@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
                                 // });
 
 Route::get('/',[HomeController::class,'index'])->name('website.home');
+Route::get('/About',[App\Http\Controllers\Website\AboutController::class, 'index'])->name('website.about');
 
 
 
