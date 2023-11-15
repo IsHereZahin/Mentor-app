@@ -53,18 +53,33 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="" class="col-sm-3 text-end control-label col-form-label">Image<span class="text-danger"> *</span></label>
+                            <div class="col-sm-9">
+                                <input type="file" name="image" class="form-control" onchange="previewImage(event)">
+                                <img id="preview" src="#" alt="Preview" style="display: none; max-width: 100%; max-height: 200px;">
+                            </div>
+                        </div>
+
+                        <script>
+                            function previewImage(event) {
+                                var reader = new FileReader();
+                                reader.onload = function() {
+                                    var preview = document.getElementById('preview');
+                                    preview.src = reader.result;
+                                    preview.style.display = 'block';
+                                }
+                                reader.readAsDataURL(event.target.files[0]);
+                            }
+                        </script>
+
+
+                        <div class="form-group row">
                             <label for="" class="col-sm-3 text-end control-label col-form-label">Comment<span class="text-danger"> *</span></label>
                             <div class="col-sm-9">
                                 <textarea class="form-control" name="comment"></textarea>
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-sm-3 text-end control-label col-form-label">Image<span class="text-danger"> *</span></label>
-                            <div class="col-sm-9">
-                                <input type="file" name="image" class="form-control" required >
-                            </div>
-                        </div>
 
                     </div>
                     <div class="border-top">
