@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Testimonial;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+
 
 class TestimonialController extends Controller
 {
@@ -70,40 +72,36 @@ class TestimonialController extends Controller
         //
         $id = $request->id;
         $testimonial = Testimonial::find($id);
+        // dd ($testimonial);
         return view('admin.about.testimonial.edit',compact('testimonial', 'id'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
         $request->validate([
             'name' =>'required',
             'title' =>'required',
             'comment' =>'required',
         ]);
 
+        $testimonial = Testimonial::find($request->id);
 
-
-        #error there ------------------------------------------------------------------------------------------------   
-
-        # image
-        $OldImage=Testimonial::query()->select('image')->id();
         if(!empty($request->image))
         {
             $image = time().'.'.$request->image->extension();
             $request->image->move(public_path('images/testimonial'), $image);
             #delete old image
-            if(File::exists(public_path('images/testimonial/'.$OldImage->image))) {
-                File::delete(public_path('images/testimonial/'.$OldImage->image));
+            if(File::exists(public_path('images/testimonial/'.$testimonial->image))) {
+                File::delete(public_path('images/testimonial/'.$testimonial->image));
             }
         }
         else
-            $image=$OldImage->image;
-
-        testimonial::query()->update([
+            $image=$testimonial->image;
+        
+        $testimonial->update([
             'name' => $request->name,
             'title' => $request->title,
             'comment'    => $request->comment,
@@ -115,8 +113,13 @@ class TestimonialController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $data=Testimonial::query()->find($id);
+        // dd ($data);
+        File::delete(public_path('images/testimonial/'.$data->image));
+
+        Testimonial::query()->find($id)->delete();
+        return redirect()->back()->with('success','Data delete successfully!');
     }
 }

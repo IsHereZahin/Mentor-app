@@ -28,8 +28,7 @@
 
         <!-- content -->
         <div class="col-md-12">
-
-            @foreach ($testimonial as $key=>$testimonial)
+            @foreach ($testimonial as $data=>$testimonial)
 
             <div class="row">
                 <div class="card">
@@ -48,7 +47,10 @@
                             </p>
                             <div>
                                 <a href="{{ route('dashboard.testimonial.edit', $testimonial->id) }}">
-                                    <button class="btn btn-warning m-3">Edit</button>
+                                    <button class="btn btn-primary  m-3">Edit</button>
+                                </a>
+                                <a href="{{ route('dashboard.testimonial.delete', $testimonial->id) }}">
+                                    <button class="btn btn-danger  m-3">Delete</button>
                                 </a>
                             </div>
                         </div>
@@ -58,10 +60,6 @@
             </div>
             <!-- End testimonial item -->
             @endforeach
-
-            {{-- @else
-                <div class="alert alert-info"> No data found.</div>
-            @endif --}}
         </div>
 
     </div>

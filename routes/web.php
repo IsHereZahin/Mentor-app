@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Website\HomeController;
+
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\HeroController;
 
-use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Website\HomeController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +27,7 @@ use Illuminate\Support\Facades\Route;
                                 // });
 
 Route::get('/',[HomeController::class,'index'])->name('website.home');
-Route::get('/About',[App\Http\Controllers\Website\AboutController::class, 'index'])->name('website.about');
+Route::get('/About',[App\Http\Controllers\Website\AboutController::class,'index'])->name('website.about');
 
 
 
@@ -48,13 +50,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/about/update',[AboutController::class,'update'])->name('dashboard.about.update');
     Route::get('/about/delete',[AboutController::class, 'destroy'])->name('dashboard.about.delete');
 
-    // --------------------------------------------Testimonial--------------------
-    Route::get('/testimonial',[App\Http\Controllers\Admin\TestimonialController::class,'index'])->name('dashboard.testimonial.index');
-    Route::get('/testimonial/create',[App\Http\Controllers\Admin\TestimonialController::class,'create'])->name('dashboard.testimonial.create');
-    Route::post('/testimonial/store',[App\Http\Controllers\Admin\TestimonialController::class,'store'])->name('dashboard.testimonial.store');
-    Route::get('/testimonial/edit/{id}',[App\Http\Controllers\Admin\TestimonialController::class,'edit'])->name('dashboard.testimonial.edit');
-    Route::post('/testimonial/update',[App\Http\Controllers\Admin\TestimonialController::class,'update'])->name('dashboard.testimonial.update');
-    Route::get('/testimonial/delete/{id}',[App\Http\Controllers\Admin\TestimonialController::class,'delete'])->name('dashboard.testimonial.delete');
+    # -------------------------------------Testimonials--------------------------------
+    Route::get('/testimonial',[TestimonialController::class,'index'])->name('dashboard.testimonial.index');
+    Route::get('/testimonial/create',[TestimonialController::class,'create'])->name('dashboard.testimonial.create');
+    Route::post('/testimonial/store',[TestimonialController::class,'store'])->name('dashboard.testimonial.store');
+    Route::get('/testimonial/edit/{id}',[TestimonialController::class,'edit'])->name('dashboard.testimonial.edit');
+    Route::post('/testimonial/update',[TestimonialController::class,'update'])->name('dashboard.testimonial.update');
+    Route::get('/testimonial/delete/{id}',[TestimonialController::class, 'destroy'])->name('dashboard.testimonial.delete');
+
 
 });
 

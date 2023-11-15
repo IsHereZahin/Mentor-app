@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -15,7 +16,8 @@ class AboutController extends Controller
     {
         //
         $about = About::query()->first();
-        return view('website.about.index', compact('about'));
+        $testimonial = Testimonial::query()->get();
+        return view('website.about.index', compact('about', 'testimonial'));
     }
 
     /**
