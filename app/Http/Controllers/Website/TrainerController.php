@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
+use App\Models\Trainers;
 use Illuminate\Http\Request;
 
-class CoursesController extends Controller
+class TrainerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,6 +14,9 @@ class CoursesController extends Controller
     public function index()
     {
         //
+        // echo "Loading";
+        $trainers = Trainers::query()->get();
+        return view('website.trainer.index', compact('trainers'));
     }
 
     /**

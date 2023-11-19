@@ -5,8 +5,9 @@
 
     @include('website.section.hero')
     @include('website.section.about')
-    @include('website.section.courses')
     @include('website.section.content')
+    @include('website.section.courses')
+    @include('website.section.trainer')
 
     @include('website.components.footer')
 

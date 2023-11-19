@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\HeroController;
+use App\Http\Controllers\Admin\TrainersController;
 
 use App\Http\Controllers\Website\HomeController;
 
@@ -28,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'index'])->name('website.home');
 Route::get('/About',[App\Http\Controllers\Website\AboutController::class,'index'])->name('website.about');
+Route::get('/Trainer',[App\Http\Controllers\Website\TrainerController::class,'index'])->name('website.trainer');
 
 
 
@@ -57,6 +59,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/testimonial/edit/{id}',[TestimonialController::class,'edit'])->name('dashboard.testimonial.edit');
     Route::post('/testimonial/update',[TestimonialController::class,'update'])->name('dashboard.testimonial.update');
     Route::get('/testimonial/delete/{id}',[TestimonialController::class, 'destroy'])->name('dashboard.testimonial.delete');
+
+    # -------------------------------------Trainers--------------------------------
+    Route::get('/trainer',[TrainersController::class,'index'])->name('dashboard.trainer.index');
+    Route::get('/trainer/create',[TrainersController::class,'create'])->name('dashboard.trainer.create');
+    Route::post('/trainer/store',[TrainersController::class,'store'])->name('dashboard.trainer.store');
+    Route::get('/trainer/edit/{id}',[TrainersController::class,'edit'])->name('dashboard.trainer.edit');
+    Route::post('/trainer/update',[TrainersController::class,'update'])->name('dashboard.trainer.update');
+    Route::get('/trainer/delete/{id}',[TrainersController::class, 'destroy'])->name('dashboard.trainer.delete');
 
 
 });

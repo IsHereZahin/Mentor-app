@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Website;
 use App\Http\Controllers\Controller;
 use App\Models\Hero;
 use App\Models\About;
+use App\Models\Trainers;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -17,7 +18,8 @@ class HomeController extends Controller
         //
         $hero = Hero::query()->first();
         $about = About::query()->first();
-        return view('website.home.index', compact('hero', 'about'));
+        $trainers = Trainers::query()->get();
+        return view('website.home.index', compact('hero', 'about', 'trainers'));
     }
 
     /**

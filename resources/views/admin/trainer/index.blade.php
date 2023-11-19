@@ -18,38 +18,39 @@
             </div>
             @endif
 
-            <h1 style="text-align: center">Testimonial</h1>
+            <h1 style="text-align: center">trainer</h1>
         </div>
         <div class="col-md-12">
-            <a href="{{ route('dashboard.testimonial.create') }}">
-                <button class="btn btn-info m-3">Add Testimonial</button>
+            <a href="{{ route('dashboard.trainer.create') }}">
+                <button class="btn btn-info m-3">Add trainer</button>
             </a>
         </div>
 
         <!-- content -->
         <div class="col-md-12">
-            @foreach ($testimonial as $data=>$testimonial)
+            @foreach ($trainer as $data=>$trainer)
 
             <div class="row">
                 <div class="card">
                     <div style="padding: 50px">
                       <div class="row">
                         <div class="col-md-3">
-                            <img src="{{ asset('images/testimonial') }}/{{ $testimonial->image ?? ''}}" class="float-start" style="height: 200px; width: 200px; border-radius: 50%;">
+                            <img src="{{ asset('images/trainer') }}/{{ $trainer->image ?? ''}}" class="float-start" style="height: 200px; width: 200px; border-radius: 50%;">
                         </div>
                         <div class="col-md-9">
-                            <h3>{{ $testimonial->name ?? ''}}</h3>
-                            <h4>{{ $testimonial->title ?? ''}}</h4>
+                            <h3>{{ $trainer->name ?? ''}}</h3>
+                            <h4>{{ $trainer->department ?? ''}}</h4>
+                            
                             <p>
                               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                {{ $testimonial->comment ?? ''}}
+                                {{ $trainer->description ?? ''}}
                               <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                             </p>
                             <div>
-                                <a href="{{ route('dashboard.testimonial.edit', $testimonial->id) }}">
+                                <a href="{{ route('dashboard.trainer.edit', $trainer->id) }}">
                                     <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
                                 </a>
-                                <a href="{{ route('dashboard.testimonial.delete', $testimonial->id) }}">
+                                <a href="{{ route('dashboard.trainer.delete', $trainer->id) }}">
                                     <button class="btn btn-secondary"><i class="fas fa-trash"></i></button>
                                 </a>
                             </div>
@@ -58,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <!-- End testimonial item -->
+            <!-- End trainer item -->
             @endforeach
         </div>
 
