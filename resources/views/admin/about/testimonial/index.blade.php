@@ -18,7 +18,7 @@
             </div>
             @endif
 
-            <h1 style="text-align: center">Testimonial</h1>
+            <h1 style="text-align: center">Testimonials</h1>
         </div>
         <div class="col-md-12">
             <a href="{{ route('dashboard.testimonial.create') }}">

@@ -18,7 +18,7 @@
             </div>
             @endif
 
-            <h1>Hero</h1>
+            <h1 class="text-center">Hero</h1>
         </div>
         <div class="col-md-12">
             @if($hero)

@@ -18,11 +18,11 @@
             </div>
             @endif
 
-            <h1 style="text-align: center">trainer</h1>
+            <h1 style="text-align: center">Trainers</h1>
         </div>
         <div class="col-md-12">
             <a href="{{ route('dashboard.trainer.create') }}">
-                <button class="btn btn-info m-3">Add trainer</button>
+                <button class="btn btn-info m-3">Add Trainer</button>
             </a>
         </div>
 
@@ -40,7 +40,7 @@
                         <div class="col-md-9">
                             <h3>{{ $trainer->name ?? ''}}</h3>
                             <h4>{{ $trainer->department ?? ''}}</h4>
-                            
+
                             <p>
                               <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                 {{ $trainer->description ?? ''}}
