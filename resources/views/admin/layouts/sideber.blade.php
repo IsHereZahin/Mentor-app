@@ -19,6 +19,10 @@
                         </ul>
                     </li>
                     <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard.features.index')}}" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Features</span></a>
+                    </li>
+
+                    <li class="sidebar-item">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard.trainer.index')}}" aria-expanded="false"><i class="fa fa-user-md"></i><span class="hide-menu">Trainers</span></a>
                     </li>
 

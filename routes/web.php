@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\HeroController;
+use App\Http\Controllers\Admin\FeaturesController;
 use App\Http\Controllers\Admin\TrainersController;
 
 use App\Http\Controllers\Website\HomeController;
@@ -59,6 +60,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/testimonial/edit/{id}',[TestimonialController::class,'edit'])->name('dashboard.testimonial.edit');
     Route::post('/testimonial/update',[TestimonialController::class,'update'])->name('dashboard.testimonial.update');
     Route::get('/testimonial/delete/{id}',[TestimonialController::class, 'destroy'])->name('dashboard.testimonial.delete');
+
+    # -------------------------------------Features--------------------------------
+    Route::get('/features',[FeaturesController::class,'index'])->name('dashboard.features.index');
+    Route::get('/features/create',[FeaturesController::class,'create'])->name('dashboard.features.create');
+    Route::post('/features/store',[FeaturesController::class,'store'])->name('dashboard.features.store');
+    Route::get('/features/edit/{id}',[FeaturesController::class,'edit'])->name('dashboard.features.edit');
+    Route::post('/features/update/{id}', [FeaturesController::class, 'update'])->name('dashboard.features.update');
+    Route::get('/features/delete/{id}',[FeaturesController::class, 'destroy'])->name('dashboard.features.delete');
 
     # -------------------------------------Trainers--------------------------------
     Route::get('/trainer',[TrainersController::class,'index'])->name('dashboard.trainer.index');
