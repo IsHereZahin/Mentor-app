@@ -49,7 +49,7 @@
                     <!-- ======= About Section ======= -->
                 <div class="row">
                     <div class="col-md-12" style="padding: 50px">
-                        <h5>{{ $about->headdescription }}</h5>
+                        <h5>{{ $about->headdescription ?? ''}}</h5>
                     </div>
                 </div>
                 <div class="row">
@@ -59,17 +59,17 @@
 
                             <div class="row">
                                 <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-                                    <img src="{{ asset('images/about') }}/{{ $about->image }}" class="img-fluid" alt="">
+                                    <img src="{{ asset('images/about') }}/{{ $about->image ?? ''}}" class="img-fluid" alt="">
                                 </div>
                                 <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-                                <h3>{{ $about->title }}</h3>
-                                <p class="fst-italic">{{ $about->description }}</p>
+                                <h3>{{ $about->title ?? ''}}</h3>
+                                <p class="fst-italic">{{ $about->description ?? ''}}</p>
                                 <ul>
-                                    <li><i class="bi bi-check-circle"></i> {{ $about->title1 }}</li>
-                                    <li><i class="bi bi-check-circle"></i> {{ $about->title2 }}</li>
-                                    <li><i class="bi bi-check-circle"></i>{{ $about->title3 }}</li>
+                                    <li><i class="bi bi-check-circle"></i> {{ $about->title1 ?? ''}}</li>
+                                    <li><i class="bi bi-check-circle"></i> {{ $about->title2 ?? ''}}</li>
+                                    <li><i class="bi bi-check-circle"></i>{{ $about->title3 ?? ''}}</li>
                                 </ul>
-                                <p>{{ $about->description1 }}</p>
+                                <p>{{ $about->description1 ?? ''}}</p>
 
                                 </div>
                             </div>
