@@ -18,7 +18,7 @@ class HomeController extends Controller
         //
         $hero = Hero::query()->first();
         $about = About::query()->first();
-        $trainers = Trainers::query()->get();
+        $trainers = Trainers::query()->take(3)->get();
         return view('website.home.index', compact('hero', 'about', 'trainers'));
     }
 
