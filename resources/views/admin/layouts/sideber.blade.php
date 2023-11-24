@@ -19,7 +19,11 @@
                         </ul>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard.features.index')}}" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Features</span></a>
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard.features.index')}}" aria-expanded="false"><i class="fas fa-list"></i><span class="hide-menu">Features</span></a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard.courses.index')}}" aria-expanded="false"><i class="fas fa-folder"></i><span class="hide-menu">Courses</span></a>
                     </li>
 
                     <li class="sidebar-item">

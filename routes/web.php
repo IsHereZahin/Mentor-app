@@ -5,6 +5,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\CoursesController;
+use App\Http\Controllers\Admin\CoursesFeaturesController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\FeaturesController;
 use App\Http\Controllers\Admin\TrainersController;
@@ -68,6 +70,22 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/features/edit/{id}',[FeaturesController::class,'edit'])->name('dashboard.features.edit');
     Route::post('/features/update/{id}', [FeaturesController::class, 'update'])->name('dashboard.features.update');
     Route::get('/features/delete/{id}',[FeaturesController::class, 'destroy'])->name('dashboard.features.delete');
+
+    # -------------------------------------Courses--------------------------------
+    Route::get('/courses',[CoursesController::class,'index'])->name('dashboard.courses.index');
+    Route::get('/courses/create',[CoursesController::class,'create'])->name('dashboard.courses.create');
+    Route::post('/courses/store',[CoursesController::class,'store'])->name('dashboard.courses.store');
+    Route::get('/courses/edit/{id}',[CoursesController::class,'edit'])->name('dashboard.courses.edit');
+    Route::post('/courses/update/{id}', [CoursesController::class, 'update'])->name('dashboard.courses.update');
+    Route::get('/courses/delete/{id}',[CoursesController::class, 'destroy'])->name('dashboard.courses.delete');
+
+    # -------------------------------------Courses--------------------------------
+    Route::get('/coursesfeatures',[CoursesFeaturesController::class,'index'])->name('dashboard.coursesfeatures.index');
+    Route::get('/coursesfeatures/create',[CoursesFeaturesController::class,'create'])->name('dashboard.coursesfeatures.create');
+    Route::post('/coursesfeatures/store',[CoursesFeaturesController::class,'store'])->name('dashboard.coursesfeatures.store');
+    Route::get('/coursesfeatures/edit/{id}',[CoursesFeaturesController::class,'edit'])->name('dashboard.coursesfeatures.edit');
+    Route::post('/coursesfeatures/update/{id}', [CoursesFeaturesController::class, 'update'])->name('dashboard.coursesfeatures.update');
+    Route::get('/coursesfeatures/delete/{id}',[CoursesFeaturesController::class, 'destroy'])->name('dashboard.coursesfeatures.delete');
 
     # -------------------------------------Trainers--------------------------------
     Route::get('/trainer',[TrainersController::class,'index'])->name('dashboard.trainer.index');
