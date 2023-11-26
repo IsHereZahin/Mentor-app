@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\CoursesController;
 use App\Http\Controllers\Admin\CoursesFeaturesController;
+use App\Http\Controllers\Admin\EventsController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\FeaturesController;
 use App\Http\Controllers\Admin\TrainersController;
@@ -33,6 +34,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class,'index'])->name('website.home');
 Route::get('/About',[App\Http\Controllers\Website\AboutController::class,'index'])->name('website.about');
 Route::get('/Trainer',[App\Http\Controllers\Website\TrainerController::class,'index'])->name('website.trainer');
+Route::get('/Events',[App\Http\Controllers\Website\EventsController::class,'index'])->name('website.events');
 
 
 
@@ -94,6 +96,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/trainer/edit/{id}',[TrainersController::class,'edit'])->name('dashboard.trainer.edit');
     Route::post('/trainer/update',[TrainersController::class,'update'])->name('dashboard.trainer.update');
     Route::get('/trainer/delete/{id}',[TrainersController::class, 'destroy'])->name('dashboard.trainer.delete');
+
+    # -------------------------------------Events--------------------------------
+    Route::get('/event',[EventsController::class,'index'])->name('dashboard.event.index');
+    Route::get('/event/create',[EventsController::class,'create'])->name('dashboard.event.create');
+    Route::post('/event/store',[EventsController::class,'store'])->name('dashboard.event.store');
+    Route::get('/event/edit/{id}',[EventsController::class,'edit'])->name('dashboard.event.edit');
+    Route::post('/event/update',[EventsController::class,'update'])->name('dashboard.event.update');
+    Route::get('/event/delete/{id}',[EventsController::class, 'destroy'])->name('dashboard.event.delete');
 
 
 });

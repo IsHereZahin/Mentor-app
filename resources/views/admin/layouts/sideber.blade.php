@@ -30,6 +30,10 @@
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard.trainer.index')}}" aria-expanded="false"><i class="fa fa-user-md"></i><span class="hide-menu">Trainers</span></a>
                     </li>
 
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard.event.index')}}" aria-expanded="false"><i class="fa fa-folder"></i><span class="hide-menu">Events</span></a>
+                    </li>
+
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->
