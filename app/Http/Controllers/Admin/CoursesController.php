@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Courses;
+use App\Models\Trainers;
 use Illuminate\Http\Request;
 
 class CoursesController extends Controller
@@ -12,8 +14,8 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.courses.index');
+        $courses = Courses::query()->withCount('totalFeature')->get();
+        return view('admin.courses.index',compact('courses'));
     }
 
     /**
@@ -21,7 +23,8 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        //
+        $trainers = Trainers::query()->select('id','name','department')->get();
+        return view('admin.courses.create',compact('trainers'));
     }
 
     /**
@@ -29,7 +32,40 @@ class CoursesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'category'      => 'required|string',
+            'name'          => 'required',
+            'short_desc'    => 'required',
+            'long_desc'     => 'required',
+            'fee'           => 'required',
+            'total_seat'    => 'required',
+            'schedule'      => 'required',
+            'trainer_id'    => 'required',
+            'image'         => 'required|image|mimes:png,jpg,jpeg',
+        ]);
+
+        # image
+        $image = null;
+        if (!empty($request->image)){
+            $image = time().'.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('images/course'), $image);
+        }
+
+        # data store
+        Courses::query()->create([
+            'category'      => $request->category,
+            'name'          => $request->name,
+            'short_desc'    => $request->short_desc,
+            'long_desc'     => $request->long_desc,
+            'fee'           => $request->fee,
+            'total_seat'    => $request->total_seat,
+            'schedule'      => $request->schedule,
+            'trainer_id'    => $request->trainer_id,
+            'image'         => $image,
+        ]);
+
+        # message
+        return redirect()->route('dashboard.courses.index')->with('success','Data added successfully!');
     }
 
     /**
