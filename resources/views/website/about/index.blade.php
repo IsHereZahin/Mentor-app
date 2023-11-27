@@ -7,7 +7,7 @@
         <div class="breadcrumbs" data-aos="fade-in">
           <div class="container">
             <h2>About Us</h2>
-            <p>{{$about->headdescription}}</p>
+            <p>{{$about->headdescription ?? ''}}</p>
           </div>
         </div><!-- End Breadcrumbs -->
     @include('website.section.about')
