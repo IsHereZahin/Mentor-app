@@ -66,11 +66,11 @@
                                 <tbody>
                                 @foreach($courses as $course)
                                 <tr>
-                                    <td><img src="{{ asset('images/course') }}/{{ $course->image }}" width="100" height="100"></td>
-                                    <td>{{ $course->name }}</td>
-                                    <td>{{ $course->category }}</td>
-                                    <td>{{ $course->fee }}</td>
-                                    <td>{{ $course->schedule }}</td>
+                                    <td><img src="{{ asset('images/course') }}/{{ $course->image ?? ''}}" width="100" height="100"></td>
+                                    <td>{{ $course->name ?? ''}}</td>
+                                    <td>{{ $course->category ?? ''}}</td>
+                                    <td>{{ $course->fee ?? ''}}</td>
+                                    <td>{{ $course->schedule ?? ''}}</td>
                                     <td>
                                         @if($course->totalFeature->isEmpty())
                                             <a href="{{ route('dashboard.coursesfeatures.create',$course->id) }}">

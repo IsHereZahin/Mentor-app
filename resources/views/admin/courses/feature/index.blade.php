@@ -67,10 +67,10 @@
                                 <tbody>
                                     @foreach($coursesfeatures as $courseFeature)
                                     <tr>
-                                        <td><img src="{{ asset('images/course/feature') }}/{{ $courseFeature->image }}" width="100" height="100"></td>
-                                        <td>{{ $courseFeature->title }}</td>
-                                        <td>{{ $courseFeature->name }}</td>
-                                        <td>{{ $courseFeature->desc }}</td>
+                                        <td><img src="{{ asset('images/course/feature') }}/{{ $courseFeature->image ?? ''}}" width="100" height="100"></td>
+                                        <td>{{ $courseFeature->title ?? ''}}</td>
+                                        <td>{{ $courseFeature->name ?? ''}}</td>
+                                        <td>{{ $courseFeature->desc ?? ''}}</td>
                                         <td>
                                             <a href="{{ route('dashboard.coursesfeatures.edit', $courseFeature->id) }}">
                                                 <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
