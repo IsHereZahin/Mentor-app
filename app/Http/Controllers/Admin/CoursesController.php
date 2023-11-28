@@ -14,8 +14,11 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        $courses = Courses::query()->withCount('totalFeature')->get();
-        return view('admin.courses.index',compact('courses'));
+        $courses = Courses::query()->with(['totalFeature' => function ($query) {
+            $query->select('course_id');
+        }])->get();
+
+        return view('admin.courses.index', compact('courses'));
     }
 
     /**

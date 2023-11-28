@@ -14,6 +14,9 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <h5 class="text-center">Course Name: {{ $course->name }}</h5>
+        </div>
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -39,56 +42,47 @@
 
             <div class="col-md-12">
                 <div style="float: right">
-                    <a href="{{ route('dashboard.courses.create') }}">
-                        <button class="btn btn-info m-3">Create Course</button>
+                    <a href="{{ route('dashboard.coursesfeatures.create',$course->id) }}">
+                        <button class="btn btn-info m-3">New Feature Add</button>
                     </a>
                 </div>
             </div>
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">All Courses</h5>
+                        <h5 class="card-title">All Feature</h5>
                         <div class="table-responsive">
                             <table id="datatable" class="table table-striped table-bordered">
 
                                 <thead>
                                 <tr>
                                     <th>Photo</th>
+                                    <th>Title</th>
                                     <th>Name</th>
-                                    <th>Category</th>
-                                    <th>Fee</th>
-                                    <th>Schedule</th>
-                                    <th>Feature</th>
+                                    <th>desc</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
-                                @foreach($courses as $course)
-                                <tr>
-                                    <td><img src="{{ asset('images/course') }}/{{ $course->image }}" width="100" height="100"></td>
-                                    <td>{{ $course->name }}</td>
-                                    <td>{{ $course->category }}</td>
-                                    <td>{{ $course->fee }}</td>
-                                    <td>{{ $course->schedule }}</td>
-                                    <td>
-                                        @if($course->totalFeature->isEmpty())
-                                            <a href="{{ route('dashboard.coursesfeatures.create',$course->id) }}">
-                                                <button class="btn btn-info">Create</button>
+                                    @foreach($coursesfeatures as $courseFeature)
+                                    <tr>
+                                        <td><img src="{{ asset('images/course/feature') }}/{{ $courseFeature->image }}" width="100" height="100"></td>
+                                        <td>{{ $courseFeature->title }}</td>
+                                        <td>{{ $courseFeature->name }}</td>
+                                        <td>{{ $courseFeature->desc }}</td>
+                                        <td>
+                                            <a href="{{ route('dashboard.coursesfeatures.edit', $courseFeature->id) }}">
+                                                <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
                                             </a>
-                                        @else
-                                            <a href="{{ route('dashboard.coursesfeatures.index', ['id' => $course->id]) }}">
-                                                <button class="btn btn-warning">{{ $course->totalFeature->count() }} - View</button>
+                                            <a href="{{ route('dashboard.coursesfeatures.delete', $courseFeature->id) }}">
+                                                <button class="btn btn-secondary"><i class="fas fa-trash"></i></button>
                                             </a>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('dashboard.courses.edit',$course->id) }}"><button class="btn btn-warning"><i class="fas fa-edit"></i></button></a>
-                                        <a href="{{ route('dashboard.courses.delete',$course->id) }}"><button class="btn btn-secondary"><i class="fas fa-trash"></i></button></a>
-                                    </td>
-                                </tr>
-                                @endforeach
+                                        </td>
+                                    </tr>
+                                    @endforeach
                                 </tbody>
+
 
                             </table>
                         </div>
