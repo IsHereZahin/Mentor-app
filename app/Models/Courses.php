@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\CoursesFeatures;
+use App\Models\Trainers;
 
 class Courses extends Model
 {
@@ -22,5 +23,14 @@ class Courses extends Model
     ];
     function totalFeature(){
         return $this->hasMany(CoursesFeatures::class,'course_id','id');
+    }
+
+    function feature(){
+        return $this->hasMany(CoursesFeatures::class,'course_id','id');
+    }
+
+    function trainerName()
+    {
+        return $this->belongsTo(Trainers::class,'trainer_id','id')->select('id','name');
     }
 }

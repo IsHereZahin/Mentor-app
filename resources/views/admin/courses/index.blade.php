@@ -83,6 +83,7 @@
                                         @endif
                                     </td>
                                     <td>
+                                        <a href="{{ route('dashboard.courses.show',$course->id) }}"><button class="btn btn-warning"><i class="fas fa-eye"></i></button></a>
                                         <a href="{{ route('dashboard.courses.edit',$course->id) }}"><button class="btn btn-warning"><i class="fas fa-edit"></i></button></a>
                                         <a href="{{ route('dashboard.courses.delete',$course->id) }}"><button class="btn btn-secondary"><i class="fas fa-trash"></i></button></a>
                                     </td>

@@ -63,7 +63,7 @@ class CoursesFeaturesController extends Controller
             'desc'      => $request->desc,
             'image'     => $image,
         ]);
-        
+
         $course = Courses::find($id);
 
         // Load only the features for the specific course using where clause
