@@ -86,7 +86,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/coursesfeatures/{id}',[CoursesFeaturesController::class,'index'])->name('dashboard.coursesfeatures.index');
     Route::get('/coursesfeatures/create/{id}',[CoursesFeaturesController::class,'create'])->name('dashboard.coursesfeatures.create');
     Route::post('/coursesfeatures/store/{id}',[CoursesFeaturesController::class,'store'])->name('dashboard.coursesfeatures.store');
-    Route::get('/coursesfeatures/edit/{id}',[CoursesFeaturesController::class,'edit'])->name('dashboard.coursesfeatures.edit');
+    Route::get('/coursesfeatures/edit/{id}', [CoursesFeaturesController::class, 'edit'])->name('dashboard.coursesfeatures.edit');
     Route::post('/coursesfeatures/update/{id}', [CoursesFeaturesController::class, 'update'])->name('dashboard.coursesfeatures.update');
     Route::get('/coursesfeatures/delete/{id}',[CoursesFeaturesController::class, 'destroy'])->name('dashboard.coursesfeatures.delete');
 

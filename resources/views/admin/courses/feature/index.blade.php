@@ -72,7 +72,7 @@
                                         <td>{{ $courseFeature->name ?? ''}}</td>
                                         <td>{{ $courseFeature->desc ?? ''}}</td>
                                         <td>
-                                            <a href="{{ route('dashboard.coursesfeatures.edit', $courseFeature->id) }}">
+                                            <a href="{{ route('dashboard.coursesfeatures.edit', ['id' => $courseFeature->id]) }}">
                                                 <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
                                             </a>
                                             <a href="{{ route('dashboard.coursesfeatures.delete', $courseFeature->id) }}">

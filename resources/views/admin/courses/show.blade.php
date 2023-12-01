@@ -106,6 +106,7 @@
         .cource-details-tabs .details p:last-child {
             margin-bottom: 0;
         }
+        
 
         @media (max-width: 992px) {
             .cource-details-tabs .nav-link {
@@ -134,14 +135,8 @@
             </div>
         </div>
     </div>
-        <!-- ======= Breadcrumbs ======= -->
-        <div class="breadcrumbs mt-1 pt-3" data-aos="fade-in">
-            <div class="container">
-{{--                <h2>Course Details</h2>--}}
-            </div>
-        </div>
-        <!-- End Breadcrumbs -->
 
+    <div class="main" style="padding: 10px 50px" >
         <!-- ======= Cource Details Section ======= -->
         <section id="course-details" class="course-details">
             <div class="container" data-aos="fade-up">
@@ -182,76 +177,65 @@
             </div>
         </section><!-- End Cource Details Section -->
 
+
         <!-- ======= Cource Details Tabs Section ======= -->
-{{--        <section id="cource-details-tabs" class="cource-details-tabs">--}}
-{{--            <div class="container" data-aos="fade-up">--}}
+        <section id="cource-details-tabs" class="cource-details-tabs">
+            <div class="container" data-aos="fade-up">
 
-{{--                    <div class="row">--}}
-{{--                        @foreach($course->feature as $feature)--}}
-{{--                        <div class="col-lg-3">--}}
-{{--                            <ul class="nav nav-tabs flex-column">--}}
-{{--                                <li class="nav-item">--}}
-{{--                                    <a class="nav-link active show" data-bs-toggle="tab" href="#tab-{{$feature->id}}">{{ $feature->title }}</a>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-lg-9 mt-4 mt-lg-0">--}}
-{{--                            <div class="tab-content">--}}
-{{--                                <div class="tab-pane active show" id="tab-{{$feature->id}}">--}}
-{{--                                    <div class="row">--}}
-{{--                                        <div class="col-lg-8 details order-2 order-lg-1">--}}
-{{--                                            <h3>{{ $feature->name }}</h3>--}}
-{{--                                            <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>--}}
-{{--                                            <p>{{ $feature->desc }}</p>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="col-lg-4 text-center order-1 order-lg-2">--}}
-{{--                                            <img src="{{ asset('images/course/feature') }}/{{ $feature->image }}" alt="" class="img-fluid">--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+              <div class="row">
+                <div class="col-lg-3">
+                  <ul class="nav nav-tabs flex-column">
 
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        @endforeach--}}
-{{--                    </div>--}}
+                    <li class="nav-item">
+                      <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Modi sit est</a>
+                    </li>
 
+                    @foreach($course->feature as $feature)
+                    <li class="nav-item">
+                      <a class="nav-link" data-bs-toggle="tab" href="#tab-{{ $feature->id }}">{{ $feature->title }}</a>
+                    </li>
+                    @endforeach
 
-
-{{--            </div>--}}
-{{--        </section><!-- End Cource Details Tabs Section -->--}}
-    <!-- ======= Cource Details Tabs Section ======= -->
-    <section id="cource-details-tabs" class="cource-details-tabs pb-5">
-        <div class="container" data-aos="fade-up">
-            <a class="m-2" href="{{ route('dashboard.coursesfeatures.create',$course->id) }}"><button class="btn btn-info"><i class="fas fa-plus"> Add feature</i></button></a>
-            @foreach($course->feature as $feature)
-            <div class="row m-2">
-                <div class="col-lg-2">
-                    <ul class="nav nav-tabs flex-column">
-                        <li class="nav-item" >
-                            <a class="nav-link active show" data-bs-toggle="tab" href="#tab-{{$feature->id}}">{{ $feature->title }}</a>
-                        </li>
-                    </ul>
+                  </ul>
                 </div>
-                <div class="col-lg-8 mt-4 mt-lg-0">
-                    <div class="tab-content">
-                        <div class="tab-pane active show" id="tab-{{$feature->id}}">
-                            <div class="row">
-                                <div class="col-lg-8 details order-2 order-lg-1">
-                                    <h3>{{$feature->title}}</h3>
-                                    <p>{{ $feature->desc }}</p>
-                                </div>
-                                <div class="col-lg-4 text-center order-1 order-lg-2">
-                                    <img src="{{ asset('images/course/feature') }}/{{ $feature->image }}" alt="" class="img-fluid w-50">
-                                </div>
-                            </div>
+                <div class="col-lg-9 mt-4 mt-lg-0 mb-5 ">
+                  <div class="tab-content">
+
+                    <div class="tab-pane active show" id="tab-1">
+                      <div class="row">
+                        <div class="col-lg-8 details order-2 order-lg-1">
+                          <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
+                          <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
+                          <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
                         </div>
+                        <div class="col-lg-4 text-center order-1 order-lg-2">
+                          <img src="assets/img/course-details-tab-1.png" alt="" class="img-fluid">
+                        </div>
+                      </div>
                     </div>
+
+                    @foreach($course->feature as $feature)
+                    <div class="tab-pane" id="tab-{{ $feature->id }}">
+                      <div class="row">
+                        <div class="col-lg-8 details order-2 order-lg-1">
+                          <h3>{{ $feature->title }}</h3>
+                          <p class="fst-italic">{{ $feature->short_desc }}</p>
+                          <p>{{ $feature->desc }}</p>
+                        </div>
+                        <div class="col-lg-4 text-center order-1 order-lg-2">
+                          <img src="{{ asset('images/course/feature/') }}/{{ $feature->image }}" alt="" class="img-fluid">
+                        </div>
+                      </div>
+                    </div>
+                    @endforeach
+
+                  </div>
                 </div>
-                <div class="col-lg-2">
-                    <a class="m-2" href="{{ route('dashboard.coursesfeatures.create',$course->id) }}"><button class="btn btn-info"><i class="fas fa-plus"> Delete</i></button></a>
-                </div>
+              </div>
+
             </div>
-                @endforeach
-        </div>
-    </section><!-- End Cource Details Tabs Section -->
+        </section><!-- End Cource Details Tabs Section -->
+    </div>
+
+
 @endsection
