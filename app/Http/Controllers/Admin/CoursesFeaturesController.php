@@ -96,6 +96,8 @@ class CoursesFeaturesController extends Controller
             return redirect()->back()->with('error', 'Record not found.');
         }
 
+        $image = $coursesfeature->image; // Default to the current image
+
         if (!empty($request->image)) {
             $image = time() . '.' . $request->image->getClientOriginalExtension();
             $request->image->move(public_path('images/course/feature/'), $image);
@@ -103,8 +105,6 @@ class CoursesFeaturesController extends Controller
             if (File::exists(public_path('images/course/feature/' . $coursesfeature->image))) {
                 File::delete(public_path('images/course/feature/' . $coursesfeature->image));
             }
-
-            $coursesfeature->image = $image;
         }
 
         $coursesfeature->update([
