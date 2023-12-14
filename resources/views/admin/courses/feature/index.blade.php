@@ -3,12 +3,13 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Course manage</h4>
+                <h4 class="page-title">Features Manage</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard </a></li>
                             <li class="breadcrumb-item active" aria-current="page">Course</li>
+                            <li class="breadcrumb-item active" aria-current="page">Features</li>
                         </ol>
                     </nav>
                 </div>

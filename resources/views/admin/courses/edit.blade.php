@@ -32,29 +32,29 @@
             <!-- hero form -->
             <div class="col-md-12">
                 <div class="card">
-                    <form class="form-horizontal" action="{{ route('dashboard.courses.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('dashboard.courses.update', ['id' => $course->id]) }}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div class="card-body">
-                            <h4 class="card-title">Create Course</h4><hr>
+                            <h4 class="card-title">Edit Course</h4><hr>
 
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 text-end control-label col-form-label">Course Name <span class="text-danger"> *</span></label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="name" class="form-control" placeholder="Course name here" required>
+                                    <input type="text" name="name" class="form-control" value="{{ $course->name }}" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 text-end control-label col-form-label">Category <span class="text-danger"> *</span></label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="category" class="form-control" placeholder="Category here" required>
+                                    <input type="text" name="category" class="form-control" value="{{ $course->category }}" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 text-end control-label col-form-label">Trainer <span class="text-danger"> *</span></label>
                                 <div class="col-sm-9">
                                     <select class="form-control form-select" name="trainer_id">
-                                        <option value="">--Select--</option>
-                                        @foreach($trainers as $trainer)
+                                        @foreach($trainer as $trainer)
                                             <option value="{{ $trainer->id }}">{{ $trainer->name }}-{{ $trainer->department }}</option>
                                         @endforeach
                                     </select>
@@ -63,56 +63,57 @@
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 text-end control-label col-form-label">Course Fee <span class="text-danger"> *</span></label>
                                 <div class="col-sm-9">
-                                    <input type="number" step="any" name="fee" class="form-control" value="0" required>
+                                    <input type="number" step="any" name="fee" class="form-control" value="{{ $course->fee }}" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 text-end control-label col-form-label">Total Seat <span class="text-danger"> *</span></label>
                                 <div class="col-sm-9">
-                                    <input type="number" name="total_seat" class="form-control" value="0" required>
+                                    <input type="number" name="total_seat" class="form-control" value="{{ $course->total_seat }}" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 text-end control-label col-form-label">Schedule</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="schedule" class="form-control" placeholder="">
+                                    <input type="text" name="schedule" class="form-control" value="{{ $course->schedule }}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="" class="col-sm-3 text-end control-label col-form-label">Image<span class="text-danger"> *</span></label>
+                                <label for="image" class="col-sm-3 text-end control-label col-form-label">Image</label>
                                 <div class="col-sm-9">
-                                    <input type="file" name="image" value="{{ $trainer->image }}" class="form-control" onchange="previewImage(event)">
+                                    <input type="file" id="image" name="image" class="form-control" accept="image/*" onchange="previewImage(event)">
                                     <img id="preview" src="#" alt="Preview" style="display: none; max-width: 100%; max-height: 200px;">
                                 </div>
                             </div>
-
                             <script>
                                 function previewImage(event) {
                                     var reader = new FileReader();
-                                    reader.onload = function() {
+
+                                    reader.onload = function () {
                                         var preview = document.getElementById('preview');
                                         preview.src = reader.result;
                                         preview.style.display = 'block';
-                                    }
+                                    };
+
                                     reader.readAsDataURL(event.target.files[0]);
                                 }
                             </script>
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 text-end control-label col-form-label">Short Description <span class="text-danger"> *</span></label>
                                 <div class="col-sm-9">
-                                    <textarea class="form-control" name="short_desc" required></textarea>
+                                    <textarea class="form-control" name="short_desc" required>{{ $course->short_desc }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="" class="col-sm-3 text-end control-label col-form-label">Long Description <span class="text-danger"> *</span></label>
                                 <div class="col-sm-9">
-                                    <textarea class="form-control" name="long_desc" required></textarea>
+                                    <textarea class="form-control" name="long_desc" required>{{ $course->long_desc }}</textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="border-top">
                             <div class="card-body">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </div>
                     </form>
