@@ -106,7 +106,7 @@
         .cource-details-tabs .details p:last-child {
             margin-bottom: 0;
         }
-        
+
 
         @media (max-width: 992px) {
             .cource-details-tabs .nav-link {
@@ -128,6 +128,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard </a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('dashboard.courses.index') }}">Course</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Course / details</li>
                         </ol>
                     </nav>
@@ -186,12 +187,11 @@
                 <div class="col-lg-3">
                   <ul class="nav nav-tabs flex-column">
 
-                    <li class="nav-item">
-                      <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">Modi sit est</a>
-                    </li>
-
                     @foreach($course->feature as $feature)
-                    <li class="nav-item">
+                    <li class="nav-item
+                        @if ($loop->first)
+                        active show
+                        @endif ">
                       <a class="nav-link" data-bs-toggle="tab" href="#tab-{{ $feature->id }}">{{ $feature->title }}</a>
                     </li>
                     @endforeach
@@ -201,21 +201,11 @@
                 <div class="col-lg-9 mt-4 mt-lg-0 mb-5 ">
                   <div class="tab-content">
 
-                    <div class="tab-pane active show" id="tab-1">
-                      <div class="row">
-                        <div class="col-lg-8 details order-2 order-lg-1">
-                          <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
-                          <p class="fst-italic">Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt dicta dolor et. In asperiores velit quaerat perferendis aut</p>
-                          <p>Ea ipsum voluptatem consequatur quis est. Illum error ullam omnis quia et reiciendis sunt sunt est. Non aliquid repellendus itaque accusamus eius et velit ipsa voluptates. Optio nesciunt eaque beatae accusamus lerode pakto madirna desera vafle de nideran pal</p>
-                        </div>
-                        <div class="col-lg-4 text-center order-1 order-lg-2">
-                          <img src="assets/img/course-details-tab-1.png" alt="" class="img-fluid">
-                        </div>
-                      </div>
-                    </div>
-
                     @foreach($course->feature as $feature)
-                    <div class="tab-pane" id="tab-{{ $feature->id }}">
+                    <div class="tab-pane
+                        @if ($loop->first)
+                            active show
+                        @endif " id="tab-{{ $feature->id }}">
                       <div class="row">
                         <div class="col-lg-8 details order-2 order-lg-1">
                           <h3>{{ $feature->title }}</h3>
