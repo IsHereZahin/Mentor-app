@@ -3,27 +3,22 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
-use App\Models\Hero;
-use App\Models\About;
 use App\Models\Courses;
-use App\Models\Features;
-use App\Models\Trainers;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-        $hero = Hero::query()->first();
-        $about = About::query()->first();
-        $trainers = Trainers::query()->take(3)->get();
-        $features = Features::query()->take(9)->get();
-        $courses = Courses::query()->take(3)->get();
-        return view('website.home.index', compact('hero', 'about', 'trainers', 'features', 'courses'));
+    function index(){
+        $courses = Courses::query()->get();
+        return view('website.course.index',compact('courses'));
+    }
+
+    function show($id){
+        $course = Courses::query()->find($id);
+        return view('website.course.show',compact('course'));
     }
 
     /**
@@ -38,14 +33,6 @@ class HomeController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
     {
         //
     }

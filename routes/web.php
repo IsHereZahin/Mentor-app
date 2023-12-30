@@ -35,6 +35,8 @@ Route::get('/',[HomeController::class,'index'])->name('website.home');
 Route::get('/About',[App\Http\Controllers\Website\AboutController::class,'index'])->name('website.about');
 Route::get('/Trainer',[App\Http\Controllers\Website\TrainerController::class,'index'])->name('website.trainer');
 Route::get('/Events',[App\Http\Controllers\Website\EventsController::class,'index'])->name('website.events');
+Route::get('/Course',[App\Http\Controllers\Website\CourseController::class,'index'])->name('website.courses');
+Route::get('/Details/{id}',[App\Http\Controllers\Website\CourseController::class,'show'])->name('website.course.details');
 
 
 

@@ -56,6 +56,7 @@
                                     <th>Photo</th>
                                     <th>Name</th>
                                     <th>Category</th>
+                                    <th>Trainer</th>
                                     <th>Fee</th>
                                     <th>Schedule</th>
                                     <th>Feature</th>
@@ -69,6 +70,7 @@
                                     <td><img src="{{ asset('images/course') }}/{{ $course->image ?? ''}}" width="100" height="100"></td>
                                     <td>{{ $course->name ?? ''}}</td>
                                     <td>{{ $course->category ?? ''}}</td>
+                                    <td>{{ $course->trainerName->name ?? ''}}</td>
                                     <td>{{ $course->fee ?? ''}}</td>
                                     <td>{{ $course->schedule ?? ''}}</td>
                                     <td>

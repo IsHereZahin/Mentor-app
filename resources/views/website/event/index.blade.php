@@ -1,5 +1,6 @@
 @extends('website.layouts.app')
 @section('content')
+    @include('website.components.navbar')
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
@@ -33,5 +34,6 @@
 
       </div>
     </section><!-- End Events Section -->
+    @include('website.components.footer')
 @endsection
 
