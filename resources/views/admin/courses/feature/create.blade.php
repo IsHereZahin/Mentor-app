@@ -24,8 +24,8 @@
 
             <div class="col-md-12">
                 <div style="float: right">
-                    <a href="{{ route('dashboard.courses.index') }}">
-                        <button class="btn btn-info m-3">Show course</button>
+                    <a href="{{ route('dashboard.coursesfeatures.index', $course->id) }}">
+                        <button class="btn btn-info m-3">Show features</button>
                     </a>
                 </div>
             </div>

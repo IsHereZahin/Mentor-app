@@ -61,7 +61,7 @@ class CoursesFeaturesController extends Controller
         $course = Courses::find($id);
         $coursesfeatures = CoursesFeatures::where('course_id', $id)->get();
 
-        return view('admin.courses.feature.index', compact('id', 'coursesfeatures', 'course'))->with('success', 'Feature added successfully!');
+        return redirect()->route('dashboard.coursesfeatures.index', compact('id', 'coursesfeatures', 'course'))->with('success', 'Feature added successfully!');
     }
 
     /**

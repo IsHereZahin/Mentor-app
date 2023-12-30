@@ -8,7 +8,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard </a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Course</li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('dashboard.courses.index') }}">Course</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Features</li>
                         </ol>
                     </nav>
