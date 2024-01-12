@@ -32,7 +32,7 @@
             <!-- hero form -->
             <div class="col-md-12">
                 <div class="card">
-                    <form action="{{ route('dashboard.courses.update', ['id' => $course->id]) }}" method="POST" enctype="multipart/form-data>
+                    <form action="{{ route('dashboard.courses.update', ['id' => $course->id]) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="card-body">

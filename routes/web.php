@@ -8,8 +8,10 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\CoursesController;
 use App\Http\Controllers\Admin\CoursesFeaturesController;
 use App\Http\Controllers\Admin\EventsController;
+use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\FeaturesController;
+use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\TrainersController;
 
 use App\Http\Controllers\Website\HomeController;
@@ -108,6 +110,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/event/update',[EventsController::class,'update'])->name('dashboard.event.update');
     Route::get('/event/delete/{id}',[EventsController::class, 'destroy'])->name('dashboard.event.delete');
 
+    # -------------------------------------Package--------------------------------
+    Route::get('/package/feature/index',[FeatureController::class,'index'])->name('dashboard.package.feature.index');
+    Route::post('/package/feature/store',[FeatureController::class,'store'])->name('dashboard.package.feature.store');
+    #package
+    Route::get('/package/index',[PackageController::class,'index'])->name('dashboard.package.index');
+    Route::get('/package/create',[PackageController::class,'create'])->name('dashboard.package.create');
+    Route::post('/package/store',[PackageController::class,'store'])->name('dashboard.package.store');
 
 });
 
