@@ -113,6 +113,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     # -------------------------------------Package--------------------------------
     Route::get('/package/feature/index',[FeatureController::class,'index'])->name('dashboard.package.feature.index');
     Route::post('/package/feature/store',[FeatureController::class,'store'])->name('dashboard.package.feature.store');
+    Route::get('/package/feature/edit/{id}',[FeatureController::class,'edit'])->name('dashboard.package.feature.edit');
+    Route::put('/package/feature/update/{id}', [FeatureController::class, 'update'])->name('dashboard.package.feature.update');
+    Route::get('/package/feature/delete/{id}',[FeatureController::class,'delete'])->name('dashboard.package.feature.delete');
     #package
     Route::get('/package/index',[PackageController::class,'index'])->name('dashboard.package.index');
     Route::get('/package/create',[PackageController::class,'create'])->name('dashboard.package.create');

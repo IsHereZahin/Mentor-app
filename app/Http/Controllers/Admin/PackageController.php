@@ -61,7 +61,7 @@ class PackageController extends Controller
                 ]);
             }
         }
-        return redirect()->route('package.index')->with('success','Package added successfully');
+        return redirect()->route('dashboard.package.index')->with('success','Package added successfully');
     }
 
     /**

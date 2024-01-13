@@ -13,6 +13,6 @@ class PackageFeatures extends Model
     }
 
     function packageFeature(){
-        return $this->belongsTo(Feature::class,'feature_id');
+        return $this->belongsTo(NameFeature::class,'feature_id');
     }
 }

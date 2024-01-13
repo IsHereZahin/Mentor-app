@@ -61,8 +61,12 @@
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $data->name }}</td>
                                         <td>
-                                            <a href="#"><button class="btn btn-warning"><i class="fas fa-edit"></i></button></a>
-                                            <a href="#"><button class="btn btn-secondary"><i class="fas fa-trash"></i></button></a>
+                                            <a href="{{ route('dashboard.package.feature.edit', ['id' => $data->id]) }}">
+                                                <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                                            </a>
+                                            <a href="{{ route('dashboard.package.feature.delete', ['id' => $data->id]) }}">
+                                                <button class="btn btn-secondary"><i class="fas fa-trash"></i></button>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

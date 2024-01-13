@@ -38,15 +38,7 @@ class FeatureController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect()->back()->with('success','Data added successfully!');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        return redirect()->back()->with('success', 'Data added successfully!');
     }
 
     /**
@@ -54,22 +46,41 @@ class FeatureController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $feature = NameFeature::findOrFail($id);
+        return view('admin.package.feature.edit', compact('feature'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'name'      => 'required',
+        ]);
+
+        $features = NameFeature::find($request->id);
+
+        if ($features)
+        {
+            $features->update([
+                'name'      => $request->name,
+            ]);
+
+            return redirect()->route('dashboard.package.feature.index')->with('success', 'Data updated successfully!');
+        }
+        else
+        {
+            return redirect()->route('dashboard.package.feature.index')->with('error', 'Record not found');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete(string $id)
     {
-        //
+        NameFeature::query()->find($id)->delete();
+        return redirect()->back()->with('success', 'Data deleted successfully!');
     }
 }
