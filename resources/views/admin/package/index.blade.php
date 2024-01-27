@@ -2,8 +2,8 @@
 @section('content')
     <style>
         /*--------------------------------------------------------------
-# Pricing
---------------------------------------------------------------*/
+        # Pricing
+        --------------------------------------------------------------*/
         .pricing .box {
             padding: 20px;
             background: #fff;
@@ -192,6 +192,16 @@
                                                 <div class="btn-wrap">
                                                     <a href="#" class="btn-buy">Buy Now</a>
                                                 </div>
+
+                                                <div class="mt-3">
+                                                    <a href="{{ route('dashboard.package.edit', ['id' => $package->id]) }}">
+                                                        <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                                                    </a>
+                                                    <a href="{{ route('dashboard.package.delete', ['id' => $package->id]) }}">
+                                                        <button class="btn btn-secondary"><i class="fas fa-trash"></i></button>
+                                                    </a>
+                                                </div>
+
                                             </div>
                                         </div>
                                         @php $featuresIds=[]; @endphp

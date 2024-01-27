@@ -120,7 +120,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/package/index',[PackageController::class,'index'])->name('dashboard.package.index');
     Route::get('/package/create',[PackageController::class,'create'])->name('dashboard.package.create');
     Route::post('/package/store',[PackageController::class,'store'])->name('dashboard.package.store');
-
+    Route::get('/package/edit/{id}', [PackageController::class, 'edit'])->name('dashboard.package.edit');
+    Route::put('/package/update/{id}', [PackageController::class, 'update'])->name('dashboard.package.update');
+    Route::get('/package/delete/{id}', [PackageController::class, 'destroy'])->name('dashboard.package.delete');
 });
 
 Route::middleware('auth')->group(function () {

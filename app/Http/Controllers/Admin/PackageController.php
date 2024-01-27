@@ -75,24 +75,39 @@ class PackageController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $package = Packages::findOrFail($id);
+        $features = NameFeature::all();
+        return view('admin.package.edit', compact('package', 'features'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'price' => 'required',
+            'duration' => 'required',
+        ]);
+
+        $package = Packages::findOrFail($id);
+        $package->update([
+            'title' => $request->title,
+            'tag' => $request->tag,
+            'price' => $request->price,
+            'duration' => $request->duration,
+        ]);
+
+        // Sync package features
+        $package->packageFeatures()->sync($request->input('feature', []));
+
+        return redirect()->route('dashboard.package.index')->with('success', 'Package updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
-    }
-}
+        $package = Packages::findOrFail($id);
+        // Delete associated package features first if needed
+        $package->delete();
+        return redirect()->route('dashboard.package.index')->with('success', 'Package deleted successfully');
+    }}
